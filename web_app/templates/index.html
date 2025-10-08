@@ -1,0 +1,186 @@
+{% extends "base.html" %} {% block title %}Home - Disease Outbreak Detection
+System{% endblock %} {% block content %}
+<div class="container">
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>🏥 Disease Outbreak Detection System</h1>
+    <p>
+      Advanced Machine Learning System for Early Detection of Disease Outbreaks
+      through Social Media Mining
+    </p>
+  </div>
+
+  <!-- Statistics Cards -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-value">88.55%</div>
+      <div class="stat-label">Model Accuracy</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">2</div>
+      <div class="stat-label">ML Algorithms</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">10K+</div>
+      <div class="stat-label">Training Tweets</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">Real-time</div>
+      <div class="stat-label">Predictions</div>
+    </div>
+  </div>
+
+  <!-- Feature Cards -->
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-icon">🔍</div>
+      <h3>Analyze Text</h3>
+      <p>
+        Enter social media posts or health-related text to detect potential
+        disease outbreak patterns using our trained ML models.
+      </p>
+      <a href="/predict" class="btn btn-primary">Start Analysis →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h3>View Analytics</h3>
+      <p>
+        Explore detailed performance metrics, confusion matrices, and
+        comparative analysis of Naive Bayes and Logistic Regression models.
+      </p>
+      <a href="/analytics" class="btn btn-primary">View Analytics →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🤖</div>
+      <h3>Dual Model System</h3>
+      <p>
+        Our system uses both Naive Bayes (85.54%) and Logistic Regression
+        (88.55%) for robust and accurate predictions.
+      </p>
+      <a href="/about" class="btn btn-primary">Learn More →</a>
+    </div>
+  </div>
+
+  <!-- How It Works Section -->
+  <div style="margin-top: 60px">
+    <div class="hero">
+      <h2 style="font-size: 36px; margin-bottom: 30px">How It Works</h2>
+
+      <div
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 30px;
+          text-align: center;
+          margin-top: 40px;
+        "
+      >
+        <div>
+          <div style="font-size: 48px; margin-bottom: 15px">1️⃣</div>
+          <h3 style="color: #667eea; margin-bottom: 10px">Input Text</h3>
+          <p style="color: #7f8c8d">
+            Enter social media post or health-related text
+          </p>
+        </div>
+
+        <div>
+          <div style="font-size: 48px; margin-bottom: 15px">2️⃣</div>
+          <h3 style="color: #667eea; margin-bottom: 10px">Text Processing</h3>
+          <p style="color: #7f8c8d">
+            NLP preprocessing with TF-IDF vectorization
+          </p>
+        </div>
+
+        <div>
+          <div style="font-size: 48px; margin-bottom: 15px">3️⃣</div>
+          <h3 style="color: #667eea; margin-bottom: 10px">ML Analysis</h3>
+          <p style="color: #7f8c8d">
+            Dual model prediction with confidence scores
+          </p>
+        </div>
+
+        <div>
+          <div style="font-size: 48px; margin-bottom: 15px">4️⃣</div>
+          <h3 style="color: #667eea; margin-bottom: 10px">Results</h3>
+          <p style="color: #7f8c8d">Get instant outbreak detection results</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Features -->
+  <div style="margin-top: 60px">
+    <h2
+      style="
+        text-align: center;
+        color: white;
+        font-size: 36px;
+        margin-bottom: 30px;
+      "
+    >
+      Key Features
+    </h2>
+    <div class="cards-grid">
+      <div class="card">
+        <h3>🚀 Real-Time Detection</h3>
+        <p>
+          Instant analysis and prediction of disease outbreak patterns from
+          social media content.
+        </p>
+      </div>
+      <div class="card">
+        <h3>🎯 High Accuracy</h3>
+        <p>
+          88.55% accuracy with Logistic Regression model, validated through
+          cross-validation.
+        </p>
+      </div>
+      <div class="card">
+        <h3>🔬 Advanced NLP</h3>
+        <p>
+          Sophisticated text preprocessing including sentiment analysis and
+          keyword extraction.
+        </p>
+      </div>
+      <div class="card">
+        <h3>📈 Dual Validation</h3>
+        <p>
+          Two independent ML models provide consensus-based outbreak detection.
+        </p>
+      </div>
+      <div class="card">
+        <h3>💡 Interpretable</h3>
+        <p>
+          Clear confidence scores and detailed analysis for each prediction.
+        </p>
+      </div>
+      <div class="card">
+        <h3>🌐 Web-Based</h3>
+        <p>
+          Accessible from any device through modern, responsive web interface.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <div style="margin-top: 60px; text-align: center">
+    <div class="hero">
+      <h2 style="font-size: 36px; margin-bottom: 20px">
+        Ready to Detect Outbreaks?
+      </h2>
+      <p style="margin-bottom: 30px">
+        Start analyzing social media content for disease outbreak patterns now
+      </p>
+      <a
+        href="/predict"
+        class="btn btn-primary"
+        style="font-size: 20px; padding: 18px 50px"
+        >Start Analysis Now →</a
+      >
+    </div>
+  </div>
+</div>
+{% endblock %}

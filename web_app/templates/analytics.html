@@ -1,0 +1,231 @@
+{% extends "base.html" %} {% block title %}Analytics - Disease Outbreak
+Detection{% endblock %} {% block content %}
+<div class="container">
+  <div class="results-header">
+    <h1>📊 Model Analytics & Performance</h1>
+    <p style="font-size: 18px; margin-top: 15px">
+      Comprehensive analysis of model performance and comparison
+    </p>
+  </div>
+
+  <!-- Model Performance Stats -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-value">85.54%</div>
+      <div class="stat-label">Naive Bayes Accuracy</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">88.55%</div>
+      <div class="stat-label">Logistic Regression Accuracy</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">+3.01%</div>
+      <div class="stat-label">Improvement</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">1106</div>
+      <div class="stat-label">Training Samples</div>
+    </div>
+  </div>
+
+  <!-- Model Comparison Chart -->
+  <div class="chart-container">
+    <h2 style="margin-bottom: 25px; color: #2c3e50">
+      📈 Model Performance Comparison
+    </h2>
+    <img
+      src="{{ url_for('serve_results', filename='model_comparison.png') }}"
+      alt="Model Comparison Chart"
+    />
+    <p style="margin-top: 20px; color: #7f8c8d; text-align: center">
+      Comparative analysis showing Logistic Regression outperforms Naive Bayes
+      across all metrics
+    </p>
+  </div>
+
+  <!-- Confusion Matrices -->
+  <h2
+    style="
+      text-align: center;
+      color: white;
+      font-size: 32px;
+      margin: 60px 0 30px 0;
+    "
+  >
+    🎯 Confusion Matrices
+  </h2>
+
+  <div
+    style="
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 40px;
+    "
+  >
+    <div class="chart-container">
+      <h3 style="margin-bottom: 20px; color: #2c3e50">
+        Naive Bayes Classifier
+      </h3>
+      <img
+        src="{{ url_for('serve_results', filename='naive_bayes_confusion_matrix.png') }}"
+        alt="Naive Bayes Confusion Matrix"
+      />
+      <div
+        style="
+          margin-top: 20px;
+          padding: 15px;
+          background: #f8f9fa;
+          border-radius: 10px;
+        "
+      >
+        <p style="font-weight: 600; color: #2c3e50; margin-bottom: 10px">
+          Performance Metrics:
+        </p>
+        <div style="display: grid; gap: 8px; font-size: 14px; color: #555">
+          <div>✓ Accuracy: 85.54%</div>
+          <div>✓ Precision: 87.30%</div>
+          <div>✓ Recall: 85.54%</div>
+          <div>✓ F1-Score: 85.37%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-container">
+      <h3 style="margin-bottom: 20px; color: #2c3e50">Logistic Regression</h3>
+      <img
+        src="{{ url_for('serve_results', filename='logistic_regression_confusion_matrix.png') }}"
+        alt="Logistic Regression Confusion Matrix"
+      />
+      <div
+        style="
+          margin-top: 20px;
+          padding: 15px;
+          background: #f8f9fa;
+          border-radius: 10px;
+        "
+      >
+        <p style="font-weight: 600; color: #2c3e50; margin-bottom: 10px">
+          Performance Metrics:
+        </p>
+        <div style="display: grid; gap: 8px; font-size: 14px; color: #555">
+          <div>✓ Accuracy: 88.55%</div>
+          <div>✓ Precision: 88.56%</div>
+          <div>✓ Recall: 88.55%</div>
+          <div>✓ F1-Score: 88.55%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Model Details -->
+  <div class="hero">
+    <h2 style="font-size: 32px; margin-bottom: 30px">
+      🔬 Model Architecture & Features
+    </h2>
+
+    <div
+      style="
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        text-align: left;
+      "
+    >
+      <div style="background: #f8f9fa; padding: 30px; border-radius: 15px">
+        <h3 style="color: #667eea; margin-bottom: 20px">
+          🤖 Naive Bayes Classifier
+        </h3>
+        <div style="line-height: 2; color: #555">
+          <p><strong>Algorithm:</strong> MultinomialNB</p>
+          <p><strong>Features:</strong> TF-IDF (1023 features)</p>
+          <p><strong>Smoothing:</strong> Laplace (alpha=1.0)</p>
+          <p><strong>Training:</strong> 774 samples</p>
+          <p><strong>Testing:</strong> 332 samples</p>
+          <p><strong>CV Score:</strong> 84.24% ± 1.71%</p>
+        </div>
+      </div>
+
+      <div style="background: #f8f9fa; padding: 30px; border-radius: 15px">
+        <h3 style="color: #667eea; margin-bottom: 20px">
+          📈 Logistic Regression
+        </h3>
+        <div style="line-height: 2; color: #555">
+          <p><strong>Algorithm:</strong> Logistic Regression (L2)</p>
+          <p><strong>Features:</strong> TF-IDF + 3 enhanced (1026 total)</p>
+          <p><strong>Regularization:</strong> C=1.0, liblinear solver</p>
+          <p><strong>Training:</strong> 774 samples</p>
+          <p><strong>Testing:</strong> 332 samples</p>
+          <p><strong>CV Score:</strong> 88.89% ± 2.49%</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Enhanced Features -->
+    <div
+      style="
+        margin-top: 40px;
+        padding: 25px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border-radius: 15px;
+        color: white;
+      "
+    >
+      <h3 style="margin-bottom: 20px">
+        ✨ Enhanced Features in Logistic Regression
+      </h3>
+      <div
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 20px;
+        "
+      >
+        <div>
+          <strong>1. Sentiment Analysis</strong>
+          <p style="opacity: 0.9; font-size: 14px; margin-top: 5px">
+            TextBlob polarity score
+          </p>
+        </div>
+        <div>
+          <strong>2. Keyword Count</strong>
+          <p style="opacity: 0.9; font-size: 14px; margin-top: 5px">
+            Disease-related keywords
+          </p>
+        </div>
+        <div>
+          <strong>3. Text Length</strong>
+          <p style="opacity: 0.9; font-size: 14px; margin-top: 5px">
+            Word count metric
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Insights -->
+  <div class="cards-grid" style="margin-top: 40px">
+    <div class="card">
+      <h3>🎯 Higher Accuracy</h3>
+      <p>
+        Logistic Regression achieves 3.01% higher accuracy through enhanced
+        feature engineering including sentiment and keyword analysis.
+      </p>
+    </div>
+    <div class="card">
+      <h3>⚖️ Balanced Performance</h3>
+      <p>
+        Both models show balanced precision and recall, indicating no bias
+        towards either class (disease vs normal).
+      </p>
+    </div>
+    <div class="card">
+      <h3>📊 Cross-Validation</h3>
+      <p>
+        5-fold cross-validation confirms model stability with Logistic
+        Regression showing 88.89% mean accuracy across folds.
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

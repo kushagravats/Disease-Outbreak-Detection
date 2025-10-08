@@ -1,0 +1,230 @@
+{% extends "base.html" %} {% block title %}Results - Disease Outbreak
+Detection{% endblock %} {% block content %}
+<div class="container">
+  <div class="results-header">
+    <h1>📊 Analysis Results</h1>
+    <div
+      class="consensus-badge consensus-{{ 'outbreak' if result.consensus == 'OUTBREAK DETECTED' else 'possible' if result.consensus == 'POSSIBLE OUTBREAK' else 'safe' }}"
+    >
+      {{ result.consensus }}
+    </div>
+  </div>
+
+  <!-- Input Text Display -->
+  <div class="input-display">
+    <h3 style="color: #2c3e50; margin-bottom: 15px">📝 Analyzed Text:</h3>
+    <p style="font-size: 16px; line-height: 1.8; color: #555">
+      {{ result.text }}
+    </p>
+
+    <div
+      style="margin-top: 25px; padding-top: 20px; border-top: 2px solid #ecf0f1"
+    >
+      <h4 style="color: #667eea; margin-bottom: 15px">
+        🔍 Text Analysis Metrics:
+      </h4>
+      <div
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 15px;
+        "
+      >
+        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px">
+          <strong>Word Count:</strong> {{ result.word_count }}
+        </div>
+        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px">
+          <strong>Disease Keywords:</strong> {{ result.keyword_count }}
+        </div>
+        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px">
+          <strong>Sentiment:</strong> {{ result.sentiment }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Model Predictions -->
+  <div class="model-results">
+    <div class="model-card {{ result.nb_class }}">
+      <div class="model-title">🤖 Naive Bayes Classifier</div>
+      <div
+        style="
+          background: #ecf0f1;
+          padding: 15px;
+          border-radius: 10px;
+          margin: 20px 0;
+        "
+      >
+        <div style="font-size: 14px; color: #7f8c8d; margin-bottom: 5px">
+          Model Type
+        </div>
+        <div style="font-weight: 600; color: #2c3e50">
+          Probabilistic Classifier
+        </div>
+        <div style="font-size: 14px; color: #7f8c8d; margin-top: 10px">
+          Accuracy: 85.54%
+        </div>
+      </div>
+      <div class="prediction-result">{{ result.nb_result }}</div>
+      <div style="font-size: 18px; font-weight: 600; margin-top: 15px">
+        Confidence: {{ result.nb_confidence }}%
+      </div>
+      <div class="confidence-bar">
+        <div class="confidence-fill nb-bar"></div>
+      </div>
+      <p style="margin-top: 20px; font-size: 14px; color: #7f8c8d">
+        Based on TF-IDF feature analysis with Laplace smoothing
+      </p>
+    </div>
+
+    <div class="model-card {{ result.lr_class }}">
+      <div class="model-title">📈 Logistic Regression</div>
+      <div
+        style="
+          background: #ecf0f1;
+          padding: 15px;
+          border-radius: 10px;
+          margin: 20px 0;
+        "
+      >
+        <div style="font-size: 14px; color: #7f8c8d; margin-bottom: 5px">
+          Model Type
+        </div>
+        <div style="font-weight: 600; color: #2c3e50">
+          Enhanced Linear Classifier
+        </div>
+        <div style="font-size: 14px; color: #7f8c8d; margin-top: 10px">
+          Accuracy: 88.55%
+        </div>
+      </div>
+      <div class="prediction-result">{{ result.lr_result }}</div>
+      <div style="font-size: 18px; font-weight: 600; margin-top: 15px">
+        Confidence: {{ result.lr_confidence }}%
+      </div>
+      <div class="confidence-bar">
+        <div class="confidence-fill lr-bar"></div>
+      </div>
+      <p style="margin-top: 20px; font-size: 14px; color: #7f8c8d">
+        Enhanced with sentiment analysis and keyword features
+      </p>
+    </div>
+  </div>
+
+  <!-- Analysis Interpretation -->
+  <div class="hero">
+    <h3 style="font-size: 24px; margin-bottom: 20px">📋 Interpretation</h3>
+    <div style="text-align: left; max-width: 800px; margin: 0 auto">
+      {% if result.consensus == 'OUTBREAK DETECTED' %}
+      <div
+        style="
+          background: #fff5f5;
+          padding: 25px;
+          border-radius: 12px;
+          border-left: 5px solid #e74c3c;
+        "
+      >
+        <h4 style="color: #e74c3c; margin-bottom: 15px">
+          🚨 High Risk - Outbreak Detected
+        </h4>
+        <p style="color: #555; line-height: 1.8">
+          Both models agree that this text contains strong indicators of a
+          disease outbreak. The content shows patterns associated with epidemic
+          situations including symptoms, affected populations, and health system
+          strain. Immediate attention recommended.
+        </p>
+      </div>
+      {% elif result.consensus == 'POSSIBLE OUTBREAK' %}
+      <div
+        style="
+          background: #fff9db;
+          padding: 25px;
+          border-radius: 12px;
+          border-left: 5px solid #f39c12;
+        "
+      >
+        <h4 style="color: #f39c12; margin-bottom: 15px">
+          ⚠️ Medium Risk - Possible Outbreak
+        </h4>
+        <p style="color: #555; line-height: 1.8">
+          Models show mixed predictions. The text contains some disease-related
+          indicators but not conclusive outbreak patterns. Further monitoring
+          advised. This could represent early-stage outbreak signals or
+          individual health mentions.
+        </p>
+      </div>
+      {% else %}
+      <div
+        style="
+          background: #f0fdf4;
+          padding: 25px;
+          border-radius: 12px;
+          border-left: 5px solid #2ecc71;
+        "
+      >
+        <h4 style="color: #2ecc71; margin-bottom: 15px">
+          ✅ Low Risk - Normal Content
+        </h4>
+        <p style="color: #555; line-height: 1.8">
+          Both models classify this as normal health-related content without
+          outbreak indicators. The text does not show patterns associated with
+          disease epidemics or public health emergencies. No immediate concern
+          detected.
+        </p>
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Model Agreement -->
+    <div
+      style="
+        margin-top: 30px;
+        padding: 20px;
+        background: #f8f9fa;
+        border-radius: 12px;
+      "
+    >
+      <h4 style="color: #2c3e50; margin-bottom: 15px">
+        🤝 Model Agreement Analysis
+      </h4>
+      {% if result.nb_class == result.lr_class %}
+      <p style="color: #2ecc71; font-weight: 600">
+        ✅ High Confidence - Both models agree on the classification
+      </p>
+      {% else %}
+      <p style="color: #f39c12; font-weight: 600">
+        ⚠️ Mixed Signals - Models have different predictions (further analysis
+        recommended)
+      </p>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div
+    style="
+      text-align: center;
+      margin-top: 40px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    "
+  >
+    <a href="/predict" class="btn btn-primary" style="font-size: 18px">
+      ← Analyze Another Post
+    </a>
+    <a href="/analytics" class="btn btn-primary" style="font-size: 18px">
+      📊 View Model Analytics
+    </a>
+    <a href="/" class="btn btn-primary" style="font-size: 18px">
+      🏠 Back to Dashboard
+    </a>
+  </div>
+</div>
+
+<script>
+  // Animate confidence bars
+  document.querySelector(".nb-bar").style.width = "{{ result.nb_confidence }}%";
+  document.querySelector(".lr-bar").style.width = "{{ result.lr_confidence }}%";
+</script>
+{% endblock %}

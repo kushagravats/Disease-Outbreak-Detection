@@ -1,0 +1,156 @@
+{% extends "base.html" %} {% block title %}Predict - Disease Outbreak
+Detection{% endblock %} {% block content %}
+<div class="container">
+  <div class="results-header">
+    <h1>🔍 Disease Outbreak Analysis</h1>
+    <p style="font-size: 18px; margin-top: 15px">
+      Enter social media content or health-related text for analysis
+    </p>
+  </div>
+
+  <div class="form-container">
+    <form action="/analyze" method="post">
+      <div class="form-group">
+        <label for="tweet_text">📝 Enter Text for Analysis:</label>
+        <textarea
+          name="tweet_text"
+          id="tweet_text"
+          placeholder="Example: Many people in our area are experiencing severe flu symptoms with high fever and persistent cough. The local hospital has seen a significant increase in patients with similar respiratory symptoms over the past week..."
+          required
+          minlength="10"
+        ></textarea>
+        <p style="color: #7f8c8d; font-size: 14px; margin-top: 10px">
+          💡 Tip: Enter at least 10 characters for accurate analysis. Include
+          health symptoms, location, and pattern descriptions for best results.
+        </p>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-submit">
+        🔍 Analyze for Disease Outbreak
+      </button>
+    </form>
+
+    <!-- Sample Inputs Section -->
+    <div
+      style="margin-top: 50px; padding-top: 30px; border-top: 2px solid #ecf0f1"
+    >
+      <h3 style="margin-bottom: 20px; color: #2c3e50">📋 Sample Test Cases</h3>
+
+      <div style="display: grid; gap: 20px">
+        <div
+          style="
+            background: #fff5f5;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #e74c3c;
+          "
+        >
+          <h4 style="color: #e74c3c; margin-bottom: 10px">
+            🚨 Disease Outbreak Example
+          </h4>
+          <p style="color: #555; font-size: 14px; line-height: 1.6">
+            "Several people in our neighborhood have been hospitalized with
+            severe respiratory illness. Local clinics are seeing a surge in
+            patients with high fever, persistent cough, and difficulty
+            breathing. Health authorities are investigating the outbreak as
+            cases continue to rise."
+          </p>
+        </div>
+
+        <div
+          style="
+            background: #f0fdf4;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #2ecc71;
+          "
+        >
+          <h4 style="color: #2ecc71; margin-bottom: 10px">
+            ✅ Normal Health Example
+          </h4>
+          <p style="color: #555; font-size: 14px; line-height: 1.6">
+            "Started my morning workout routine today. Feeling great and
+            energized! Had a healthy breakfast with fruits and whole grains.
+            Ready for a productive day at work."
+          </p>
+        </div>
+
+        <div
+          style="
+            background: #fff9db;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #f39c12;
+          "
+        >
+          <h4 style="color: #f39c12; margin-bottom: 10px">
+            ⚠️ Ambiguous Example
+          </h4>
+          <p style="color: #555; font-size: 14px; line-height: 1.6">
+            "Heard someone mention they had a slight headache yesterday but
+            feeling better now after taking rest. Just a normal day otherwise."
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- How Analysis Works -->
+  <div class="hero" style="margin-top: 40px">
+    <h3 style="font-size: 28px; margin-bottom: 20px">
+      🔬 How Our Analysis Works
+    </h3>
+    <div style="text-align: left; max-width: 800px; margin: 0 auto">
+      <div style="display: grid; gap: 20px">
+        <div style="display: flex; gap: 20px; align-items: start">
+          <div style="font-size: 32px">1️⃣</div>
+          <div>
+            <h4 style="color: #667eea; margin-bottom: 8px">
+              Text Preprocessing
+            </h4>
+            <p style="color: #7f8c8d; font-size: 15px">
+              Removes URLs, special characters, and stop words. Normalizes text
+              for analysis.
+            </p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 20px; align-items: start">
+          <div style="font-size: 32px">2️⃣</div>
+          <div>
+            <h4 style="color: #667eea; margin-bottom: 8px">
+              Feature Extraction
+            </h4>
+            <p style="color: #7f8c8d; font-size: 15px">
+              TF-IDF vectorization, sentiment analysis, and disease keyword
+              counting.
+            </p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 20px; align-items: start">
+          <div style="font-size: 32px">3️⃣</div>
+          <div>
+            <h4 style="color: #667eea; margin-bottom: 8px">
+              Dual Model Prediction
+            </h4>
+            <p style="color: #7f8c8d; font-size: 15px">
+              Both Naive Bayes and Logistic Regression models analyze
+              independently.
+            </p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 20px; align-items: start">
+          <div style="font-size: 32px">4️⃣</div>
+          <div>
+            <h4 style="color: #667eea; margin-bottom: 8px">
+              Consensus Decision
+            </h4>
+            <p style="color: #7f8c8d; font-size: 15px">
+              Final prediction based on both models with confidence scores.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
