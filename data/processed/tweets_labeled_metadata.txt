@@ -1,0 +1,30 @@
+OUTBREAK DETECTION LABELING METADATA
+==================================================
+
+total_samples: 3540
+outbreak_samples: 1239
+normal_samples: 2301
+outbreak_ratio: 35.0%
+threshold: 3
+labeling_approach: Outbreak indicators (not individual symptoms)
+timestamp: 2025-11-14T21:35:29.954815
+
+OUTBREAK INDICATORS:
+
+community_spread:
+  everyone, everybody, whole, entire, many people, lots of people, several people, multiple people, all my, spreading
+
+severity:
+  hospital, hospitalized, emergency, icu, critical, severe, serious, dying, death, deaths
+
+rapid_increase:
+  sudden, suddenly, rapidly, fast, quickly, increase, rising, surge, spike, jump
+
+geographic:
+  in my area, in my city, in my town, around here, local, nearby, region, county, state
+
+multiple_cases:
+  another, more, additional, new cases, confirmed cases, reported cases, total cases, case count, number of cases
+
+official_concern:
+  health department, cdc, who, health officials, authorities, warning, alert, advisory, public health, investigation
