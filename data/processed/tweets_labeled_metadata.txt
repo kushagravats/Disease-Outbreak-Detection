@@ -1,13 +1,13 @@
 OUTBREAK DETECTION LABELING METADATA
 ==================================================
 
-total_samples: 3540
-outbreak_samples: 1239
-normal_samples: 2301
+total_samples: 120
+outbreak_samples: 42
+normal_samples: 78
 outbreak_ratio: 35.0%
 threshold: 3
 labeling_approach: Outbreak indicators (not individual symptoms)
-timestamp: 2025-11-14T21:35:29.954815
+timestamp: 2025-11-27T11:46:21.621853
 
 OUTBREAK INDICATORS:
 

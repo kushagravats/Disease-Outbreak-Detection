@@ -1,0 +1,36 @@
+======================================================================
+NAIVE BAYES MODEL - TRAINING REPORT
+======================================================================
+
+MODEL CONFIGURATION:
+  Algorithm: Multinomial Naive Bayes
+  Alpha (smoothing): 1.0
+  Fit Prior: True
+  Features: 2005
+
+PERFORMANCE METRICS:
+  Accuracy:  89.26%
+  Precision: 89.11%
+  Recall:    89.26%
+  F1-Score:  89.08%
+
+CROSS-VALIDATION:
+  Mean: 89.12%
+  Std:  1.60%
+  Scores: ['89.60%', '90.56%', '90.88%', '86.72%', '87.82%']
+
+CONFUSION MATRIX:
+  [[517  30]
+ [ 54 181]]
+
+TOP OUTBREAK INDICATORS:
+  • outbreak
+  • ebola outbreak
+  • warning
+  • cdc
+  • epidemic
+  • public health
+  • health officials
+  • death toll
+  • community
+  • measles outbreak

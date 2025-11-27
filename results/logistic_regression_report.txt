@@ -1,0 +1,39 @@
+======================================================================
+LOGISTIC REGRESSION MODEL - TRAINING REPORT
+======================================================================
+
+MODEL CONFIGURATION:
+  Algorithm: Logistic Regression
+  C (regularization): 5.0
+  Solver: lbfgs
+  Class Weight: balanced
+  Total Features: 3976
+    - TF-IDF: 3966
+    - Numerical: 10
+
+PERFORMANCE METRICS:
+  Accuracy:  95.78%
+  Precision: 95.78%
+  Recall:    95.78%
+  F1-Score:  95.74%
+
+CROSS-VALIDATION:
+  Mean: 94.62%
+  Std:  1.03%
+  Scores: ['96.00%', '94.24%', '95.52%', '93.12%', '94.23%']
+
+CONFUSION MATRIX:
+  [[538   9]
+ [ 24 211]]
+
+TOP OUTBREAK INDICATORS:
+  • cdc: 14.1919
+  • community: 7.7832
+  • severe: 6.9459
+  • public health: 6.8850
+  • investigation: 6.8754
+  • critical: 6.6947
+  • everyone: 6.5069
+  • monitoring: 6.3581
+  • health officials: 6.0953
+  • whole: 6.0794

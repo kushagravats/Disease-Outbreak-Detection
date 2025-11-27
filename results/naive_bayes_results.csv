@@ -1,2 +1,2 @@
-Model,Accuracy,Precision,Recall,F1-Score
-Naive Bayes,85.03%,84.96%,85.03%,84.68%
+Model,Accuracy,Precision,Recall,F1-Score,CV_Mean,CV_Std,Best_Alpha,Best_Fit_Prior,Training_Samples,Testing_Samples,Features,Timestamp
+Naive Bayes (Optimized),89.26%,89.11%,89.26%,89.08%,89.12%,1.60%,1.0,True,3124,782,2005,2025-11-27 12:35:21

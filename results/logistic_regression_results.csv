@@ -1,2 +1,2 @@
-Model,Accuracy,Precision,Recall,F1-Score
-Logistic Regression,88.42%,88.39%,88.42%,88.40%
+Model,Accuracy,Precision,Recall,F1-Score,CV_Mean,CV_Std,Best_C,Best_Solver,Class_Weight,Training_Samples,Testing_Samples,Total_Features,TF-IDF_Features,Numerical_Features,Timestamp
+Logistic Regression (Optimized),95.78%,95.78%,95.78%,95.74%,94.62%,1.03%,5.0,lbfgs,balanced,3124,782,3976,3966,10,2025-11-27 12:40:26
